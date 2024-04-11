@@ -6,7 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const ResetPassword = ({params}: any) => {
-
+  console.log(params.email);
   console.log(params.token);
   const router = useRouter();
   const [error, setError] = useState("");
@@ -53,7 +53,7 @@ const ResetPassword = ({params}: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const password = e.target[0].value;
-
+    
     try{
       const res = await fetch("/api/reset-password", {
         method: "POST",
@@ -62,7 +62,7 @@ const ResetPassword = ({params}: any) => {
         },
         body: JSON.stringify({
           password,
-          email: user?.email,
+          email: user?.['email'],
         }),
       });
       if (res.status === 400) {

@@ -4,21 +4,6 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
-    firstName: {
-        type: String,
-        unique: true,
-        required: true,
-      },
-      lastName: {
-        type: String,
-        unique: true,
-        required: true,
-      },
-      account: {
-        type: String,
-        unique: true,
-        required: true,
-      },
     email: {
       type: String,
       unique: true,
@@ -35,6 +20,21 @@ const userSchema = new Schema(
     resetTokenExpiry: {
       type: Date,
       required: false,
+    },
+    firstName: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    account: {
+      type: String,
+      unique: true,
+      required: true,
     },
   },
   { timestamps: true }
